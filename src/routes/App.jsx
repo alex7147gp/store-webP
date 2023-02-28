@@ -9,7 +9,7 @@ import useProducts from '../hooks/useInitialState';
 import AppContext from '../context/appContext';
 
 
-const AsyncCheckutContainer = React.lazy(() => {
+const AsyncCheckoutContainer = React.lazy(() => {
   import("@containers/Checkout")
 })
 
@@ -22,12 +22,12 @@ const App = () => {
     <>
       {isEmpty > 0 ? (
         <Suspense fallback={<div>Loading..</div>}>
-          <AppContext.Provider value={initialSta}>
+          <AppContext.Provider value={initialState}>
             <BrowserRouter>
               <Layout>
                 <Routes>
                   <Route exact path="/" component={Home} />
-                  <Route exact path="/checkout" component={AsyncCheckoutContaine} />
+                  <Route exact path="/checkout" component={AsyncCheckoutContainer} />
                   <Route component={NotFound} />
                 </Routes>
               </Layout>
